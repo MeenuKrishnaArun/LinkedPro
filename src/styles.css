@@ -1,0 +1,16 @@
+/* You can add global styles to this file, and also import other style files */
+
+/*html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }*/
+body
+{
+    /* background-image: url("https://i.pinimg.com/originals/1a/b1/19/1ab119fa375ef988f5102e8cc74cfd16.jpg"); */
+    background-color: rgb(246, 210, 240);
+}
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+
+.mat-menu-panel {
+    background: white;
+  }

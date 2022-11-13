@@ -1,0 +1,69 @@
+.newspaper
+{
+    -webkit-column-count: 3;
+    -moz-column-count: 3;
+    column-count:3;
+    margin-top: 40px;
+}
+img
+{
+    padding: 30px;
+}
+.card:hover
+{
+    
+}
+.menu-container
+{
+    text-align: center;
+    display: flex;
+    margin-left:15px;
+    
+}
+svg
+{   
+    margin-top:10px ;
+    margin-right: 40px;
+    cursor: pointer;
+}
+
+.profile-img
+{
+    border-radius: 50%;
+    width:200px;
+    height: 200px;
+}
+.profile-img-container
+{
+    align-items: center;
+    display: flex;
+    flex-direction: column-reverse;
+}
+.post-button
+{
+   margin-top: 10px;
+   margin-right: 25px; 
+
+}
+.post-outer-container
+{
+ height: 1000px;   
+}
+.cardimage
+{
+    width: 1998px;
+}
+li:hover
+{
+    color: rgb(227, 49, 109);
+
+}
+svg:hover
+{
+    color:rgb(234, 22, 93) ;
+}
+button:hover
+{
+    color:rgb(234, 22, 93) ;
+
+}

@@ -1,0 +1,61 @@
+.form-signin
+{
+    padding: 50px;
+    border-radius: 20px;
+ 
+}
+input
+{
+    margin-bottom: 20px;
+}
+.loginwrapper
+{   
+    margin-left: auto;
+    margin-right: auto;
+    width: 480px;
+
+}
+.card
+{
+}
+.mystyle
+{
+    margin-left: auto;
+    margin-right: auto;
+    width: 450px;
+    color: rgb(193, 9, 95);
+    
+    border-radius: 10px;
+}
+button{
+    margin-top: 10px;    
+    margin-left: 130px;
+    color:black ;
+    border-radius: 10px;
+}
+*
+{
+    background-color:rgb(246, 210, 240);
+}
+h2,h1{
+    color: rgb(103, 7, 52);
+}
+.d-flex
+{
+    height:100vh;
+}
+.ima
+{
+    position: fixed;
+    bottom: 50px;
+    right: 0;
+}
+
+.ima > img
+{
+    height:300px
+}
+button:hover
+{
+    background-color: rgb(199, 23, 82);
+}

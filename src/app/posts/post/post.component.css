@@ -1,0 +1,49 @@
+.profile-img
+{
+border: 1px solid white;
+  width: 80px;
+  height: 80px;
+  border-radius: 100%;
+  padding: 10px;
+}
+.rol
+{
+    color: rgb(101, 99, 99);
+    margin-left: 2px;
+    font-size:85%;
+}
+.dat
+{
+    color: rgb(101, 99, 99);
+    margin-left: 2px;
+    font-size:85%;
+    padding-bottom: 5px;
+
+}
+.nam
+{
+    color: black;
+    margin-left: 2px;
+    font-weight: bold;
+    padding-top: 15px;
+    
+}
+
+    
+
+button
+{
+    
+    margin-left: 20px;
+    margin-right: 20px;
+    color: black;
+    border-color: azure;
+    background-color:white;
+}
+button:hover
+{
+    background-color: lightgrey;
+    color: black;
+    border-color: lightgrey;
+}
+svg{}

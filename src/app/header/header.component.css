@@ -1,0 +1,125 @@
+
+svg,img
+{
+  width:6px;
+  height: 4px;
+  text-align: center;
+  margin-top: 5px;
+}
+.outer-container
+{
+    margin-left: 10%;
+    margin-right: 10%;
+    
+}
+button
+{
+color: #faf4f7;
+}
+.search
+{
+    margin-left: 10px;
+    color: #a60651;
+}
+
+.title-search-grp
+{
+  margin-top:15px;
+}
+
+.search > input, button
+{
+  height: 30px;
+  padding: 1px 10px 0px 10px
+  
+}
+.bi,.imgclass
+{
+  padding :1.9px;
+  width: 29px;
+  height: 27px; 
+} 
+
+.menucontainer
+{
+  text-align: center;
+  display: flex;
+}
+
+.border-bottom
+{
+  border-bottom: 1px solid lightgray;
+}
+
+.me 
+{
+  margin-right: 10px;
+  margin-left: 10px;
+}
+
+
+.menu-item
+{
+    display: grid;
+    justify-items: center;
+    width: 60px;
+}
+
+.menu-item > div
+{
+  font-size: .7rem;
+  line-height: 30px;
+}
+
+.mat-button-toggle-group
+{
+   height: 60px;
+   border-radius: 0px;
+   
+}
+.mat-button-toggle-appearance-standard 
+{
+    color: black;
+    background: white;
+    border-color: gray;
+}
+
+.mat-button-toggle-checked 
+{
+  background-color: hsl(332, 93%, 34%);
+  color: white;
+  border-color: gray;
+}
+
+.mat-button-toggle-standalone.mat-button-toggle-appearance-standard, .mat-button-toggle-group-appearance-standard {
+  border: solid 1px lightgray;
+}
+
+.pointer
+{
+  cursor: pointer;
+}
+
+.me > img
+{
+  border: 1px solid white;
+  width: 50px;
+  height: 50px;
+  border-radius: 100%;
+}
+
+.name
+{
+  padding-left: 10px;
+  padding-right: 20px
+}
+.flex
+{
+  display: flex;
+  flex-direction: row;
+}
+
+.profile-title
+{
+   padding-top: 10px;
+}
