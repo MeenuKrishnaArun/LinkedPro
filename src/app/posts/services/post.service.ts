@@ -5,10 +5,11 @@ import { PostModel } from 'src/app/model/post';
   providedIn: 'root'
 })
 export class PostService {
+  
   posts: PostModel[];
-
   constructor() { 
     this.posts = [{
+      postId: crypto.randomUUID(),
         user: {
           name: "John doe",
           role: "Web Developer",
@@ -20,6 +21,7 @@ export class PostService {
         imageUrl: "https://www.daysoftheyear.com/cdn-cgi/image/dpr=1%2Cf=auto%2Cfit=cover%2Cheight=651%2Cmetadata=none%2Conerror=redirect%2Cq=70%2Csharpen=1%2Cwidth=1400/wp-content/uploads/happy-mother-s-day-2021-08-27-22-12-32-utc-scaled.jpg"
       },
       {
+        postId: crypto.randomUUID(),
         user: {
           name: "Marry white",
           role: "Architect",
@@ -33,9 +35,26 @@ export class PostService {
         imageUrl: "https://tse1.mm.bing.net/th?id=OIP.KX4KwZr_7RhQUWi2KFBRfwHaEK&pid=Api&P=0"
       }
     ];
+    
   }
 
+  // Get all posts for postfeed
   getPosts(): PostModel[]{
     return this.posts;
   }
+
+  // Add 'post' to the main list of posts
+  addPost(post: PostModel)
+  {
+    this.posts.unshift(post);
+  }
+
+  deletePost(postId:string)
+ {
+  let index = this.posts.findIndex(item => item.postId === postId);
+  this.posts.splice(index,1);
+  //this.posts = this.posts.filter(item => item.postId === postId);
+
+  }
+   
 }

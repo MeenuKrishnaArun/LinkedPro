@@ -9,6 +9,7 @@ export interface User
 
 export interface PostModel
 {
+    postId: string,
     user: User;
     createdDate: Date;
     content: string;
@@ -17,9 +18,11 @@ export interface PostModel
     comments?: string[];
     myReaction?: Reaction;
     reactions?: ReactionSummary[];
+    
 }
 
-export interface ReactionSummary{
+export interface ReactionSummary
+{
     reaction: Reaction;
     count: number;
 }

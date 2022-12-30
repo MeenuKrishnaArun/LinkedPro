@@ -46,4 +46,11 @@ button:hover
     color: black;
     border-color: lightgrey;
 }
-svg{}
+.del
+{
+    color: rgb(101, 99, 99);
+     align-items:stretch;
+     text-align: end;
+
+    
+}
