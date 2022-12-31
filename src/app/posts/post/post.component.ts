@@ -10,7 +10,8 @@ import { PostService } from '../services/post.service';
 })
 export class PostComponent implements OnInit {
   @Input() post!:PostModel;
-    postService:PostService;
+    
+  postService:PostService;
       
    constructor(postservice:PostService)
    {

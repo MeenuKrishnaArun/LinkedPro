@@ -22,7 +22,9 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatSelectModule} from '@angular/material/select';
 import {ImageComponent } from './image/image.component';
 import {MatMenuModule} from '@angular/material/menu';
-import { PostModule } from './posts/post.module'
+import { PostModule } from './posts/post.module';
+import { NgxSpinnerModule } from "ngx-spinner";
+
 
 @NgModule({
   declarations: [
@@ -52,7 +54,9 @@ import { PostModule } from './posts/post.module'
     MatFormFieldModule,
     MatSelectModule,
     MatMenuModule,
-    PostModule
+    PostModule,
+    NgxSpinnerModule
+
    ],
   providers: [],
   bootstrap: [AppComponent]

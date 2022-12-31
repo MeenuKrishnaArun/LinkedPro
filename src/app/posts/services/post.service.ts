@@ -1,13 +1,21 @@
 import { Injectable } from '@angular/core';
+import { Observable, Subject, Subscriber, timer } from 'rxjs';
 import { PostModel } from 'src/app/model/post';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 @Injectable({
   providedIn: 'root'
 })
 export class PostService {
   
-  posts: PostModel[];
-  constructor() { 
+  public posts: PostModel[];
+  public postListUpdatedEvent: Observable<boolean>;
+  private postSubject: Subject<boolean>;
+  constructor(private spinner: NgxSpinnerService ) { 
+
+    this.postSubject = new Subject<boolean>();
+    this.postListUpdatedEvent = this.postSubject as Observable<boolean>;
+
     this.posts = [{
       postId: crypto.randomUUID(),
         user: {
@@ -37,7 +45,7 @@ export class PostService {
     ];
     
   }
-
+ 
   // Get all posts for postfeed
   getPosts(): PostModel[]{
     return this.posts;
@@ -46,15 +54,22 @@ export class PostService {
   // Add 'post' to the main list of posts
   addPost(post: PostModel)
   {
-    this.posts.unshift(post);
+    this.spinner.show();
+    const source = timer(2000);
+    const subscribe = source.subscribe(val => 
+      {
+        this.posts.unshift(post);
+       // this.postSubject.next(true);
+       this.spinner.hide();
+      });
   }
 
   deletePost(postId:string)
  {
-  let index = this.posts.findIndex(item => item.postId === postId);
-  this.posts.splice(index,1);
-  //this.posts = this.posts.filter(item => item.postId === postId);
-
+  //let index = this.posts.findIndex(item => item.postId === postId);
+  //this.posts.splice(index,1);
+  this.posts = this.posts.filter(item => item.postId !== postId);
+  this.postSubject.next(true);
   }
    
 }

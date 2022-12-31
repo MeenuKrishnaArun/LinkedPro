@@ -9,18 +9,24 @@ import { PostService } from 'src/app/posts/services/post.service';
   styleUrls: ['./postfeed.component.css']
 })
 export class PostfeedComponent implements OnInit {
-  postList: PostModel[];
   
+  postList?: PostModel[];
+  postService: PostService;
    
 
-  constructor(PostService: PostService )
+  constructor(postService: PostService )
    { 
-      
-       this.postList = PostService.getPosts();
-        
 
+    this.postService = postService;
+    this.refreshPostList();       
+    this.postService.postListUpdatedEvent.subscribe(item => {
+      this.refreshPostList();
+    })
   }
   
+  refreshPostList(){
+    this.postList = this.postService.getPosts();
+  }
 
    ngOnInit(): void {
   }
