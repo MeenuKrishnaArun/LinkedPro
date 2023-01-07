@@ -39,13 +39,13 @@ svg
 .post-button
 {
    margin-top: 10px;
-   margin-right: 25px; 
-
 }
+
 .post-outer-container
 {
  height: 1000px;   
 }
+
 .cardimage
 {
     width: 1998px;
@@ -59,8 +59,8 @@ svg:hover
 {
     color:rgb(234, 22, 93) ;
 }
-button:hover
-{
-    color:rgb(234, 22, 93) ;
 
+.post-content
+{
+    margin-top: 10px;
 }

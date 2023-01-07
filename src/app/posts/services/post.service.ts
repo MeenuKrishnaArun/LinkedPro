@@ -11,7 +11,7 @@ export class PostService {
   public posts: PostModel[];
   public postListUpdatedEvent: Observable<boolean>;
   private postSubject: Subject<boolean>;
-  constructor(private spinnerService: NgxSpinnerService ) { 
+  constructor(private spinnerService: NgxSpinnerService  ) { 
 
     this.postSubject = new Subject<boolean>();
     this.postListUpdatedEvent = this.postSubject as Observable<boolean>;

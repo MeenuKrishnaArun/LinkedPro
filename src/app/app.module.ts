@@ -25,7 +25,6 @@ import {MatMenuModule} from '@angular/material/menu';
 import { PostModule } from './posts/post.module';
 import { NgxSpinnerModule } from "ngx-spinner";
 
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -55,8 +54,7 @@ import { NgxSpinnerModule } from "ngx-spinner";
     MatSelectModule,
     MatMenuModule,
     PostModule,
-    NgxSpinnerModule
-
+    NgxSpinnerModule,
    ],
   providers: [],
   bootstrap: [AppComponent]
