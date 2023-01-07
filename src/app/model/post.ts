@@ -2,6 +2,7 @@ import { RouterConfigurationFeature } from "@angular/router";
 
 export interface User
 {
+    userId: string;
    name: string;
    role: string; 
    avatarUrl: string;   

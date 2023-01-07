@@ -9,8 +9,13 @@ export class AuthenticationService {
  
   private readonly mockedUser=new SignInData('meenukrishna@mail.com','test123');
   isAuthenticated=false;
+  
+  constructor( private router:Router) { 
+  }
 
-  constructor( private router:Router) { }
+  getUserId(){
+    return this.mockedUser.getEmail();
+  }
   authenticate(signInData:SignInData):boolean
   {
     if(this.checkCredentials(signInData))

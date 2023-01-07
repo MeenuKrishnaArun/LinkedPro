@@ -1,7 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { PostModel } from 'src/app/model/post';
 import { PostService } from '../services/post.service';
-
+import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
+import { AuthenticationService } from 'src/app/authentication.service';
 
 @Component({
   selector: 'app-post',
@@ -11,11 +12,10 @@ import { PostService } from '../services/post.service';
 export class PostComponent implements OnInit {
   @Input() post!:PostModel;
     
-  postService:PostService;
-      
-   constructor(postservice:PostService)
+  safeSrc?: SafeResourceUrl;
+
+   constructor(private postService:PostService, private sanitizer: DomSanitizer, private authService: AuthenticationService)
    {
-    this.postService=postservice;
    }
 
    deletePost()
@@ -24,8 +24,16 @@ export class PostComponent implements OnInit {
     this.postService.deletePost(this.post.postId);
    }
 
-  ngOnInit(): void {
+   showDeleteButton(){
+    if(this.authService.getUserId() === this.post.user.userId)
+      return true;
+    else
+      return false;
+   }
 
+  ngOnInit(): void {
+    if(this.post.videoUrl)
+      this.safeSrc =  this.sanitizer.bypassSecurityTrustResourceUrl(this.post.videoUrl as string);
   }
 
 }

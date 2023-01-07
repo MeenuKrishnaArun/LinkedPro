@@ -11,7 +11,7 @@ export class PostService {
   public posts: PostModel[];
   public postListUpdatedEvent: Observable<boolean>;
   private postSubject: Subject<boolean>;
-  constructor(private spinner: NgxSpinnerService ) { 
+  constructor(private spinnerService: NgxSpinnerService ) { 
 
     this.postSubject = new Subject<boolean>();
     this.postListUpdatedEvent = this.postSubject as Observable<boolean>;
@@ -19,6 +19,7 @@ export class PostService {
     this.posts = [{
       postId: crypto.randomUUID(),
         user: {
+          userId: 'john.doe@mail.com',
           name: "John doe",
           role: "Web Developer",
           avatarUrl: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRbM0xYTIJDg188HtjJmpbfBI4iDWqXHPqQaw&usqp=CAU"
@@ -26,11 +27,13 @@ export class PostService {
         },
         content: "For many families around the world and throughout history, it has traditionally been the mother who has the often thankless job of keeping the family and household running. Starting with lending their bodies to house babies before they are even born, mothers have a tendency to give up a lot for their families and are rarely given the accolades they deserve.",
         createdDate: new Date(),
-        imageUrl: "https://www.daysoftheyear.com/cdn-cgi/image/dpr=1%2Cf=auto%2Cfit=cover%2Cheight=651%2Cmetadata=none%2Conerror=redirect%2Cq=70%2Csharpen=1%2Cwidth=1400/wp-content/uploads/happy-mother-s-day-2021-08-27-22-12-32-utc-scaled.jpg"
+        //imageUrl: "https://www.daysoftheyear.com/cdn-cgi/image/dpr=1%2Cf=auto%2Cfit=cover%2Cheight=651%2Cmetadata=none%2Conerror=redirect%2Cq=70%2Csharpen=1%2Cwidth=1400/wp-content/uploads/happy-mother-s-day-2021-08-27-22-12-32-utc-scaled.jpg",
+        videoUrl: "https://www.youtube.com/embed/c9F5kMUfFKk"
       },
       {
         postId: crypto.randomUUID(),
         user: {
+          userId: 'marry.white@mail.com',
           name: "Marry white",
           role: "Architect",
           avatarUrl: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTDOa5pWMBgzGMnwm9w3WS8VtsTUTzQLHzj2g&usqp=CAU"
@@ -54,13 +57,13 @@ export class PostService {
   // Add 'post' to the main list of posts
   addPost(post: PostModel)
   {
-    this.spinner.show();
+    this.spinnerService.show();
     const source = timer(2000);
     const subscribe = source.subscribe(val => 
       {
         this.posts.unshift(post);
        // this.postSubject.next(true);
-       this.spinner.hide();
+       this.spinnerService.hide();
       });
   }
 
