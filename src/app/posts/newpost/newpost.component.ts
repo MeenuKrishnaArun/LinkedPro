@@ -47,19 +47,9 @@ export class NewpostComponent implements OnInit {
         role: "Frontend developer",
         avatarUrl: "assets/1.jpg"
     },
-    //comments: [{
-//commentText: this.commentcontent as string,
-      
-      
-     // user: {
-     //   name: "Meenu Krishna",
-       // userId: this.authService.getUserId(),
-        //role: "front end Developer",
-        //avatarUrl: "assets/1.jpg"
-  
-          //   }
-    //}],
-    //content: this.content as string,
+    comments:[],
+    
+    content: this.content as string,
     createdDate: new Date(),
     imageUrl: this.imageUrl,
     videoUrl: this.videoUrl as string,

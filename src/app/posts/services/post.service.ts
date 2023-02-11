@@ -114,6 +114,7 @@ export class PostService {
   {    
     let post = this.posts.find((item: PostModel) => item.postId == postid);
     post?.comments?.push(comment)
+    
   }
 
 
