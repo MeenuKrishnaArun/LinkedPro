@@ -19,6 +19,7 @@ export class NewpostComponent implements OnInit {
   imageUrl?: string = undefined;
   content?: string='';
   safeSrc?: SafeResourceUrl;
+  commentcontent?:string='';
   
  constructor(postService: PostService, private authService:AuthenticationService,
   public dialog:MatDialog, private sanitizer: DomSanitizer)
@@ -33,11 +34,10 @@ export class NewpostComponent implements OnInit {
 
   public onValueChange(event: Event): void {
     console.log(event.target);
-    const value = (event.target as any).value;
-    this.content = value;
+    this.content=(event.target as any).value;
   }
 
-  aaddPost()
+  addPost()
   {
     this.newpost = { 
       postId: crypto.randomUUID(),
@@ -47,10 +47,24 @@ export class NewpostComponent implements OnInit {
         role: "Frontend developer",
         avatarUrl: "assets/1.jpg"
     },
-    content: this.content as string,
+    //comments: [{
+//commentText: this.commentcontent as string,
+      
+      
+     // user: {
+     //   name: "Meenu Krishna",
+       // userId: this.authService.getUserId(),
+        //role: "front end Developer",
+        //avatarUrl: "assets/1.jpg"
+  
+          //   }
+    //}],
+    //content: this.content as string,
     createdDate: new Date(),
     imageUrl: this.imageUrl,
-    videoUrl: this.videoUrl as string
+    videoUrl: this.videoUrl as string,
+    
+    
   };
   console.log("Adding new post " + this.newpost.postId);
   this.postService.addPost(this.newpost);
@@ -70,7 +84,7 @@ export class NewpostComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
-      if(result == '') this.imageUrl = undefined; else this.imageUrl = result;
+      if(result === '') this.imageUrl = undefined; else this.imageUrl = result;
     });
   }
 

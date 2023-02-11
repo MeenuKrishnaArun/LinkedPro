@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { PostModel } from 'src/app/model/post';
+import { PostModel, ReactionSummary } from 'src/app/model/post';
 import { PostService } from '../services/post.service';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import { AuthenticationService } from 'src/app/authentication.service';
@@ -10,14 +10,28 @@ import { AuthenticationService } from 'src/app/authentication.service';
   styleUrls: ['./post.component.css']
 })
 export class PostComponent implements OnInit {
-  @Input() post!:PostModel;
-    
-  safeSrc?: SafeResourceUrl;
+   isButtonVisible = true;
 
-   constructor(private postService:PostService, private sanitizer: DomSanitizer, private authService: AuthenticationService)
+  @Input() post!:PostModel;
+  
+  
+  
+
+  safeSrc?: SafeResourceUrl;
+  
+  
+
+   constructor(private postService:PostService, private sanitizer: DomSanitizer, private authService: AuthenticationService )
    {
    }
-
+    show()
+    {
+      if(this.isButtonVisible == false)
+        this.isButtonVisible=true;
+        
+      else
+        this.isButtonVisible = false;
+    }
    deletePost()
    {
     console.log("Deleting post "+this.post.postId);
@@ -35,5 +49,8 @@ export class PostComponent implements OnInit {
     if(this.post.videoUrl)
       this.safeSrc =  this.sanitizer.bypassSecurityTrustResourceUrl(this.post.videoUrl as string);
   }
-
+  
+ 
+   
+  
 }

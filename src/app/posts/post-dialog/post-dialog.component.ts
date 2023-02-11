@@ -12,14 +12,16 @@ export interface DialogData {
   styleUrls: ['./post-dialog.component.css']
 })
 export class PostDialogComponent implements OnInit {
-  
+  public value: string;
   constructor(@Inject(MAT_DIALOG_DATA) public data: DialogData,
-  public dialogRef: MatDialogRef<PostDialogComponent>) {}
+  public dialogRef: MatDialogRef<PostDialogComponent>) {
+    this.value = this.data.value;
+  }
 
   ngOnInit(): void {
   }
 
   onNoClick(): void {
-    this.dialogRef.close();
+    this.dialogRef.close(this.value);
   }
 }

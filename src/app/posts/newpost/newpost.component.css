@@ -39,6 +39,8 @@ svg
 .post-button
 {
    margin-top: 10px;
+   border-radius: 35px;
+
 }
 
 .post-outer-container

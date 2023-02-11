@@ -54,3 +54,17 @@ button:hover
 
     
 }
+.toggle
+{
+    margin-left: 20px;
+    margin-right: 20px;
+    color: black;
+    border-color: azure;
+    background-color:white;
+}
+.toggle:hover
+{
+    
+    color: rgb(129, 3, 102);
+    border-color: lightgrey;
+}

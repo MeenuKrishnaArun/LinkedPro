@@ -1,0 +1,27 @@
+.profile-img
+{
+  border: 1px solid white;
+  width: 40px;
+  border-radius: 100%;
+  padding: 3px;
+  
+  
+}
+.alignItems{
+    
+    font-size:small;
+    border-radius: 10px;
+    align-items: flex-start;
+    background-color: rgb(222, 223, 241);
+    width: 100%;
+  }
+.container
+{
+    display: flex;
+    align-items:flex-start;
+    padding-bottom: 10px;
+}
+div{
+  margin-left: 10px;
+  margin-right: 10px;
+}

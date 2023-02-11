@@ -9,6 +9,16 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatDialogModule} from '@angular/material/dialog';
 import {TextFieldModule} from '@angular/cdk/text-field';
 import { FormsModule } from '@angular/forms';
+import {MatChipsModule} from '@angular/material/chips';
+import {MatMenuModule} from '@angular/material/menu';
+import {MatIconModule} from '@angular/material/icon';
+import { CommentfeedComponent } from './commentfeed/commentfeed.component';
+import { AddcommentComponent } from './addcomment/addcomment.component';
+import { CommentComponent } from './comment/comment.component';
+
+
+
+
 
 @NgModule({
   declarations: [    
@@ -16,14 +26,20 @@ import { FormsModule } from '@angular/forms';
     PostfeedComponent,
     PostComponent,
     TestComponent,
-    PostDialogComponent
+    PostDialogComponent,
+    CommentfeedComponent,
+    AddcommentComponent,
+    CommentComponent
   ],
   imports: [
     CommonModule,
     MatButtonModule,
     MatDialogModule,
     TextFieldModule,
-    FormsModule
+    FormsModule,
+    MatChipsModule,
+    MatMenuModule,
+    MatIconModule
   ],
   exports: [
     NewpostComponent,

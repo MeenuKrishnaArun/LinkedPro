@@ -25,6 +25,12 @@ import {MatMenuModule} from '@angular/material/menu';
 import { PostModule } from './posts/post.module';
 import { NgxSpinnerModule } from "ngx-spinner";
 
+
+
+
+
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -35,6 +41,7 @@ import { NgxSpinnerModule } from "ngx-spinner";
     MenuitemComponent,
     NetworkComponent,
     ImageComponent
+    
   ],
   imports: [
     BrowserModule,
