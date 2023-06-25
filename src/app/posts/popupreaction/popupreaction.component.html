@@ -1,0 +1,18 @@
+<button style="margin-inline-start: 90%;" (click)="onNoClick()" mat-mini-fab color="blue">
+    <mat-icon>close</mat-icon>
+  </button>
+<div class="card" style="width: 50rem; margin-bottom:15px;">
+         <div *ngFor="let like of likes ">
+        <div class="d-flex">
+
+        <div>
+            <img  class="card-img-top profile-img" [src]="like.avatarUrl" />
+        </div>
+        <div>
+            <div class="nam">{{like.name}}</div>
+            <div class="rol">{{like.role}}</div>
+        </div>
+       
+</div>
+    </div>
+    </div>

@@ -1,5 +1,5 @@
 import { Component, OnInit, Inject } from '@angular/core';
-import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 
 export interface DialogData {
   title: string;
@@ -13,15 +13,16 @@ export interface DialogData {
 })
 export class PostDialogComponent implements OnInit {
   public value: string;
-  constructor(@Inject(MAT_DIALOG_DATA) public data: DialogData,
+  constructor(@Inject(MAT_DIALOG_DATA)
+  public data: DialogData,
+
   public dialogRef: MatDialogRef<PostDialogComponent>) {
     this.value = this.data.value;
   }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   onNoClick(): void {
-    this.dialogRef.close(this.value);
+    this.dialogRef.close();
   }
 }

@@ -1,19 +1,19 @@
 export class SignInData
 {
-    private email:string;
-    private password:string;
+     email:string;
+     password:string;
 
     constructor( email:string,password:string)
     {
         this.email = email;
         this.password = password;
     }
-    getEmail():string
+    getEmail()
     {
         return this.email;
     
     }
-    getPassword():string
+    getPassword()
     {
         return this.password;
     }

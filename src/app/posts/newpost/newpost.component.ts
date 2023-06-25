@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { AuthenticationService } from 'src/app/authentication.service';
 import { PostModel } from 'src/app/model/post';
 import { PostService } from 'src/app/posts/services/post.service';
-import { Inject} from '@angular/core';
 import {MatDialog, MAT_DIALOG_DATA} from '@angular/material/dialog';
 import { PostDialogComponent } from '../post-dialog/post-dialog.component';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
@@ -13,13 +12,14 @@ import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
   styleUrls: ['./newpost.component.css']
 })
 export class NewpostComponent implements OnInit {
+  posty:string="";
+
   newpost?: PostModel;
   postService: PostService;
   videoUrl?: String = undefined;
   imageUrl?: string = undefined;
   content?: string='';
   safeSrc?: SafeResourceUrl;
-  commentcontent?:string='';
   
  constructor(postService: PostService, private authService:AuthenticationService,
   public dialog:MatDialog, private sanitizer: DomSanitizer)
@@ -53,7 +53,7 @@ export class NewpostComponent implements OnInit {
     createdDate: new Date(),
     imageUrl: this.imageUrl,
     videoUrl: this.videoUrl as string,
-    
+    Likes:[]
     
   };
   console.log("Adding new post " + this.newpost.postId);
@@ -72,12 +72,15 @@ export class NewpostComponent implements OnInit {
       },
     });
 
-    dialogRef.afterClosed().subscribe(result => {
+    dialogRef.afterClosed().subscribe(result =>
+       {
       console.log('The dialog was closed');
-      if(result === '') this.imageUrl = undefined; else this.imageUrl = result;
+      if(result === '')
+       this.imageUrl = undefined; 
+       else if(result !== undefined)
+        this.imageUrl = result;
     });
   }
-
     openVideoDialog() {
       const dialogRef = this.dialog.open(PostDialogComponent, {
         data: {
@@ -88,8 +91,14 @@ export class NewpostComponent implements OnInit {
 
       dialogRef.afterClosed().subscribe(result => {
         console.log('The dialog was closed');
-        if(result == '') { this.videoUrl = undefined; this.safeSrc = undefined; }else this.videoUrl = result;
-        if(this.videoUrl)
+        if(result == '')
+         { 
+          this.videoUrl = undefined;
+           this.safeSrc = undefined; 
+          }
+          else if(result !== undefined)
+           this.videoUrl = result;
+          if(this.videoUrl)
       this.safeSrc =  this.sanitizer.bypassSecurityTrustResourceUrl(this.videoUrl as string);
       });
   }

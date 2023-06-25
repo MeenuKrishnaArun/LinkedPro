@@ -15,6 +15,9 @@ import {MatIconModule} from '@angular/material/icon';
 import { CommentfeedComponent } from './commentfeed/commentfeed.component';
 import { AddcommentComponent } from './addcomment/addcomment.component';
 import { CommentComponent } from './comment/comment.component';
+import { PostsummaryComponent } from './postsummary/postsummary.component';
+import { PopupreactionComponent } from './popupreaction/popupreaction.component';
+import { PopupcommentComponent } from './popupcomment/popupcomment.component';
 
 
 
@@ -29,7 +32,10 @@ import { CommentComponent } from './comment/comment.component';
     PostDialogComponent,
     CommentfeedComponent,
     AddcommentComponent,
-    CommentComponent
+    CommentComponent,
+    PostsummaryComponent,
+    PopupreactionComponent,
+    PopupcommentComponent
   ],
   imports: [
     CommonModule,

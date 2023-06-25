@@ -19,9 +19,8 @@ export class PostfeedComponent implements OnInit {
 
     this.postService = postService;
     this.refreshPostList();       
-    this.postService.postListUpdatedEvent.subscribe(item => {
-      this.refreshPostList();
-    })
+    this.postService.postListUpdatedEvent.subscribe(item => {this.refreshPostList();})
+    
   }
   
   refreshPostList(){

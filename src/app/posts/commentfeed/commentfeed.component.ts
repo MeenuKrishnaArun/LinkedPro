@@ -12,17 +12,20 @@ import { PostService } from 'src/app/posts/services/post.service';
 export class CommentfeedComponent implements OnInit {
  
   @Input() comments?:Comment[];
+  buttonvisible:boolean=true;
   
-  
-   constructor( )
+   constructor()
    { 
+    
 
    }
+  
    
    ngOnInit(): void {
-  }
   
-
+    
+  }
+   
 }
 
 

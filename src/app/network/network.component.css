@@ -1,5 +1,5 @@
 .example-card {
-    max-width: 800px;
+    max-width: 900px;
     margin-bottom: 8px;
     margin-top: 80px;
     background-color: rgb(247, 242, 242);
@@ -8,7 +8,7 @@
 button:hover
 {
     cursor: pointer;
-    background-color: rgb(249, 6, 140);
+    background-color: rgb(81, 3, 250);
 }
   
 .example-card:hover{
@@ -23,5 +23,5 @@ button
 }
 mat-card-title:hover
 {
- color: rgb(154, 2, 83);
+ color: rgb(169, 192, 230);
 }

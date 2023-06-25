@@ -12,14 +12,15 @@ import { NgIf } from '@angular/common';
 export class LoginComponent implements OnInit {
       
 
-  constructor(private authenticationService: AuthenticationService) { }
+  constructor(private authenticationService:AuthenticationService) { }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
+
   onSubmit(signInForm:NgForm){
     console.log(signInForm.value);
-    const signInData = new SignInData(signInForm.value.email,signInForm.value.password);
+    const signInData = new SignInData((signInForm.value).email,(signInForm.value).password);
    this.authenticationService.authenticate(signInData);
 }
+
 }
 

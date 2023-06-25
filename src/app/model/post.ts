@@ -1,26 +1,27 @@
 import { RouterConfigurationFeature } from "@angular/router";
 
-export interface User
-{
-    userId?: string;
-   name: string;
-   role: string; 
-   avatarUrl: string;   
-}
+
 
 export interface PostModel
 {
     postId: string,
-    user: User;
+    user:User;
     createdDate?: Date;
     content?: string;
     imageUrl?: string;
     videoUrl?: string;
     comments?: Comment[];
-    myReaction?: Reaction;
-    reactions?: ReactionSummary[];
-    
+    Likes?: User[];
 }
+
+export interface User
+{
+   userId: string;
+   name: string;
+   role: string; 
+   avatarUrl: string;   
+}
+
 export interface Comment
 {
     user:User;
@@ -33,7 +34,8 @@ export interface ReactionSummary
     count: number;
 }
 
-export enum Reaction{
+export enum Reaction
+{
     Like,
     Celebrate,
     Support,

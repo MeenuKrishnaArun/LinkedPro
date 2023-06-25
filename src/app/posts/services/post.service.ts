@@ -1,13 +1,15 @@
 import { Injectable } from '@angular/core';
-import { Observable, Subject, Subscriber, timer } from 'rxjs';
-import { Comment, PostModel } from 'src/app/model/post';
+import { Observable, Subject,Subscriber, timer } from 'rxjs';
+import { Comment, PostModel, Reaction, ReactionSummary, User } from 'src/app/model/post';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { PostModule } from '../post.module';
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class PostService {
+  hideflag:boolean=false;
   public posts: PostModel[];
   public postListUpdatedEvent: Observable<boolean>;
   private postSubject: Subject<boolean>;
@@ -47,7 +49,25 @@ export class PostService {
             role: "Architect",
             avatarUrl: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcToDsQ2oZovJgZ1tZvk_lZohB1yoJSMLqrOXQ&usqp=CAU"
                  }
-        }] 
+        }],
+        Likes:[{
+          userId: 'priya@gmail.com',
+          name: 'Riya S Raj',
+          role: 'student',
+          avatarUrl:"https://wallpaperset.com/w/full/1/0/0/191473.jpg"},
+          {
+
+          userId: 'tara@gmail.com',
+          name: 'Renju Sruthy',
+          role: 'teacher',
+          avatarUrl:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSLmEAWNLfALv_mJ57CnBH4YhCWiNtWobUx5FB10mhEo5oCRgkeqcoqXkbdhfUlYIEun9k&usqp=CAU"},
+          {
+            
+          userId: 'priya@gmail.com',
+            name: 'Leena George',
+            role: 'student',
+            avatarUrl:"https://1.bp.blogspot.com/-k3XlNuOeN8U/YCj4bLikxKI/AAAAAAAAhcc/G2pOo6LKr384c0KYvu8Or1RmvZBzltCpgCLcBGAsYHQ/s720/50%2B%252B%2BWhatsapp%2BBeautiful%2BDP%2BCollection%2B2021%2B%252818%2529.jpg"}],
+
       },
       {
         postId: crypto.randomUUID(),
@@ -80,11 +100,29 @@ export class PostService {
             role: "Web Developer",
             avatarUrl: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQlbxZycyavsI38QwhqCQbUDnpYMd4MvaaR3w&usqp=CAU"
                  }
-        }] 
-      }
+        }] ,
+        Likes:[{
+               userId: 'athi@gmail.com',
+               name: 'Athul S Raj',
+               role: "designer",
+               avatarUrl:"https://149785820.v2.pressablecdn.com/wp-content/uploads/2020/11/the-inn-on-biltmore-estate-3.jpg"},
+               {
+
+            
+               userId: 'athi@gmhail.com',
+               name: 'Arya Tampi',
+               role: "designer",
+               avatarUrl:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRWG3rOZKJsm0rrrhRXZAZ9Xj1_Rzup0xFoIbPWRe-r2gyyrqMudy1f1dfVk0yX9VkPhog&usqp=CAU"},
+               {
+                userId: 'athi@gmail.com',
+                name: 'Payal AS',
+                role: 'designer',
+                avatarUrl:"https://us.123rf.com/450wm/jickaro/jickaro2210/jickaro221000266/192835295-adorable-deer-on-a-bokeh-background-with-snow-christmas-background-concept-3d-render.jpg?ver=6"}],
+
+       
+     }
     ];
-    
-  }
+ }
 
 
   // Get all posts for postfeed
@@ -112,10 +150,30 @@ export class PostService {
 
   addComment(comment:Comment, postid:string)
   {    
-    let post = this.posts.find((item: PostModel) => item.postId == postid);
+    let post = this.posts.find((item) => item.postId == postid);
     post?.comments?.push(comment)
     
   }
-
-
+  addLikes(like:User,postid:string)
+  {
+    let post = this.posts.find((item)=> item.postId== postid);
+    post?.Likes?.push(like)
+   
+  }
+  DeleteLikes(postid:string,userId:string)
+  {
+      let post  =  this.posts.find((item)=> item.postId == postid);
+      if(post && post.Likes)
+      {
+        let index =   post.Likes.findIndex((item)=>item.userId ==  userId)
+        post?.Likes?.splice(index,1)
+      }  
+    
+   }
+   
+   HideShowCommentEmitter=new Subject<boolean>();
+   eventraised(data:boolean)
+   {
+    this.HideShowCommentEmitter.next(data);
+   }
 }

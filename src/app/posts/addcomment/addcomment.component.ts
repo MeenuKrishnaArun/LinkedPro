@@ -9,12 +9,9 @@ import { PostService } from '../services/post.service';
   styleUrls: ['./addcomment.component.css']
 })
 export class AddcommentComponent implements OnInit {
-  @Input() comment!:Comment;
   @Input() postid!:string;
-  TempValue:boolean=true;
   content:string='';
   postService: PostService;
-  userCommentItem:string='';
    
   constructor(postService: PostService, private authService:AuthenticationService)
    { 
@@ -41,7 +38,6 @@ addComment()
   }
  
   this.postService.addComment(comment, this.postid)
-
   this.content = '';
 }
 

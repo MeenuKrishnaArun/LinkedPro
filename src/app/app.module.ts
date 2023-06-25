@@ -5,7 +5,6 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
 import { HeaderComponent } from './header/header.component';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { MenuComponent } from './menu/menu.component';
 import { MenuitemComponent } from './menuitem/menuitem.component';
 import {MatButtonToggleModule} from '@angular/material/button-toggle';
@@ -24,6 +23,10 @@ import {ImageComponent } from './image/image.component';
 import {MatMenuModule} from '@angular/material/menu';
 import { PostModule } from './posts/post.module';
 import { NgxSpinnerModule } from "ngx-spinner";
+import { NotificationComponent } from './notification/notification.component';
+
+
+
 
 
 
@@ -40,13 +43,15 @@ import { NgxSpinnerModule } from "ngx-spinner";
     MenuComponent,
     MenuitemComponent,
     NetworkComponent,
-    ImageComponent
+    ImageComponent,
+    NotificationComponent
+    
+    
     
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    NgbModule,
     MatButtonToggleModule,
     BrowserAnimationsModule,
     MatTabsModule,

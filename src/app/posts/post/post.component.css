@@ -68,3 +68,14 @@ button:hover
     color: rgb(129, 3, 102);
     border-color: lightgrey;
 }
+.likeBtn
+{
+    color: rgb(250, 251, 239);
+    background-color: rgb(62, 62, 239);
+    
+}
+.likeShow
+{
+  visibility: hidden;
+  
+}

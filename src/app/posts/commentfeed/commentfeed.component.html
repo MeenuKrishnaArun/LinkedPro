@@ -1,7 +1,7 @@
 
-<div>
+<div *ngIf="buttonvisible">
     <ng-container *ngFor="let comment of comments">
-        <app-comment [comment]="comment"></app-comment>
+          <app-comment [comment]="comment" ></app-comment>
     </ng-container> 
 </div>
          

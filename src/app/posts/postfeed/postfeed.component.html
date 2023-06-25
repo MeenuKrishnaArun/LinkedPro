@@ -7,7 +7,7 @@
 <!-- <ng-template #template1> -->
      <div class="container">
         <ng-container *ngFor="let post of postList">
-            <app-post [post]="post"></app-post>
+            <app-post [post]="post" [postId]="post.postId"></app-post>
            </ng-container>
      </div>
 

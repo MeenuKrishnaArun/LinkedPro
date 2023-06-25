@@ -25,8 +25,9 @@
                 </svg></div>
              </div>
             <div>
-               <button mat-flat-button color="primary" (click)="addPost()"  class="post-button" type="button">post</button>               
-            </div>           
+                  <button mat-flat-button color="primary" (click)="addPost()"  class="post-button" type="submit" >post</button>               
+            </div> 
+                     
           </div>
 
             <ng-template [ngIf]="this.imageUrl">
@@ -35,15 +36,13 @@
                </div>
             </ng-template>
           
-      
-         <ng-template [ngIf]="this.safeSrc">
+       <ng-template [ngIf]="this.safeSrc">
             <div class="post-content">
             <iframe [src]="safeSrc" width="520" height="315" frameborder="0" webkitallowfullscreen mozallowfullscreen
             allowfullscreen></iframe>
             </div>
            </ng-template>
-      
-        </div>
+      </div>
     </div>
     
   </div>
