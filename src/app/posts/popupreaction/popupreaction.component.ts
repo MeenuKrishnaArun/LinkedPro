@@ -22,7 +22,9 @@ export class PopupreactionComponent implements OnInit {
 
   ngOnInit(): void {
   }
-  onNoClick(): void {
+ 
+  onNoClick(): void 
+  {
     this.dialogRef.close();
   }
 }

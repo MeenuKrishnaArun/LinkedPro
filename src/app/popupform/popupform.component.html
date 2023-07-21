@@ -1,0 +1,62 @@
+
+   <!-- <div>
+    <mat-form-field>
+    <mat-label>UserName</mat-label>
+    <input matInput>
+  </mat-form-field>
+  <div class="example-container">
+    <mat-form-field>
+      <mat-label>Enter your phone number</mat-label>
+      <input matInput>
+    </mat-form-field>
+  </div>
+  
+  <div class="example-container">
+    <mat-form-field>
+      <mat-label>Enter your email</mat-label>
+      <input matInput placeholder="pat@example.com" [formControl]="email" required>
+      <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
+    </mat-form-field>
+  </div>
+  <mat-form-field>
+    <mat-label>Gender</mat-label>
+    <mat-select>
+      <mat-option value="one">Female</mat-option>
+      <mat-option value="two">Male</mat-option>
+    </mat-select>
+  </mat-form-field><br><br>
+    <button mat-button color="accent">submit</button>
+  
+    </div>-->
+    <div class="container">
+        <div class="form-area">
+            <form  (ngSubmit)="onSubmit()" #myForm="ngForm"  >
+         <div>
+                   
+          <label>USER NAME</label>
+          <input type="text" name="name" ngModel><br><br>
+
+          <label>PHONE NUMBER</label>
+          <input type="tel" name="phone" ngModel><br><br>
+        
+
+          <label>EMAIL ID</label>
+          <input type="email" placeholder="txt@gmail.com" name="email" ngModel><br><br>
+          
+         </div>
+        
+         <p> <label>GENDER</label>
+        
+                <input type="radio"id="male" value="male" name="gender" name="gender" ngModel>
+                <label for="male">MALE</label>
+
+                <input type="radio" id="female" value="Female" name="gender" name="gender" ngModel>
+                <label for="female">FEMALE</label></p>
+
+         <input class="submit"   type="submit" value="submit">
+         
+            </form >
+        </div>
+    </div  >
+    <button routerLink="/header/network" color="accent" >Go back</button>
+    <router-outlet></router-outlet>

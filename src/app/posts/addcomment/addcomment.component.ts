@@ -45,31 +45,4 @@ addComment()
   
  
 }
-  /*addUserComment()
-  {
-    this.newpost = { 
-      postId: crypto.randomUUID(),
-      user: {
-        userId: this.authService.getUserId(),
-        name: "Meenu Krishna",
-        role: "Frontend developer",
-        avatarUrl: "assets/1.jpg"
-    },
-    comments: [{
-      commentText: this.valueHolder as string,
-      
-    user: {
-        name:'Meenu Krishna',
-        userId:this.authService.getUserId(),
-        role: "Frontend developer",
-        avatarUrl: "assets/1.jpg"
-             }
-    }]
-  };
-  console.log("Adding new post " + this.newpost.postId);
-  this.postService.addPost(this.newpost);
-  //this.postService.deletePost(this.newpost);
-   }*/
-   
   
-            

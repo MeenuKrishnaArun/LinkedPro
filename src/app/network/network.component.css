@@ -1,27 +1,47 @@
-.example-card {
-    max-width: 900px;
-    margin-bottom: 8px;
-    margin-top: 80px;
-    background-color: rgb(247, 242, 242);
+table {
+    width: 100%;
+    
+  }
+  
+  th {
+
+    color: rgb(87, 1, 36);
+  }
+ th, td {
+    text-align: center;
+  }
+  th{
+    text-transform: uppercase;
 
   }
-button:hover
-{
-    cursor: pointer;
-    background-color: rgb(81, 3, 250);
+  div
+  {
+      margin-top: 60px;
+  }
+  th {
+    background-color: #8f0967;
+    color: white;
+  }
+  tr:hover
+  {
+    background-color: #5c58ba;
 }
-  
-.example-card:hover{
-    background-color: rgb(223, 238, 243);
-}
-button
-{
-    border-radius:10px;
-    background-color: #a60651;
-    color: azure;
+ 
 
+
+button:active {
+  background-color: #52e377;
+  box-shadow: 0 5px #373737;
+  transform: translateY(4px);
 }
-mat-card-title:hover
-{
- color: rgb(169, 192, 230);
-}
+      
+   button{
+    border-radius: 10px;
+    background-color: #2c0101;
+    color: aliceblue;
+    margin-left: auto;
+    
+   }   
+      
+
+  

@@ -7,6 +7,7 @@ import { LoginComponent } from './login/login.component';
 import { MessageComponent } from './message/message.component';
 import { NetworkComponent } from './network/network.component';
 import { NotificationComponent } from './notification/notification.component';
+import { PopupformComponent } from './popupform/popupform.component';
 const routes: Routes = [
       {
         path:'header',component:HeaderComponent,
@@ -14,11 +15,15 @@ const routes: Routes = [
                    {path:'network',component:NetworkComponent},
                     {path:'message',component:MessageComponent},
                       {path:'image',component:ImageComponent},
-                    {path:'notification',component:NotificationComponent} ]
+                    {path:'notification',component:NotificationComponent},
+                    {
+                      path:'popupform',component:PopupformComponent
+                    } ]
       },
        {
         path:'',component:LoginComponent
-      }
+      },
+     
 
       ];
         

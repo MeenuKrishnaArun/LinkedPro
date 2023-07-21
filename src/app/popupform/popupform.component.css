@@ -1,0 +1,45 @@
+input
+{
+
+    text-align: center;
+    color: rgb(85, 2, 67);
+    border-color: rgb(178, 178, 176);
+
+}  
+
+
+  label{
+    margin-right: 30px;
+    margin-bottom: 20px;
+  }
+  
+  .container
+  {
+    
+    max-width: fit-content;
+    border: 40cm;
+    border-color: rgb(2, 39, 27);
+  }
+  .submit
+  {
+    margin-right: 50px;
+    background-color: #02ba0e;
+  }
+  button:active {
+    background-color: #02ba0e;
+    box-shadow: 0 5px #373737;
+    transform: translateY(4px);
+  }
+        
+     button{
+      border-radius: 10px;
+      background-color: #140005;
+      color: aliceblue;
+      margin-left: auto;
+      
+     }   
+     
+        
+  small{
+    color: red;
+  }

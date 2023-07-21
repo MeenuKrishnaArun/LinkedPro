@@ -1,60 +1,27 @@
-<div class="mx-auto" style="width: 900px;height: 1000px;">
-<mat-card class="example-card">
-    <mat-card-title-group>
-      <mat-card-title>Glowing Beaches
-    </mat-card-title>
-      <mat-card-subtitle></mat-card-subtitle>
-      <img mat-card-xl-image src="https://www.holidify.com/images/cmsuploads/compressed/9mdlh6lhm6h11_20190719144005.jpg" >
-    </mat-card-title-group>
-    <mat-card-content>
-        
-        {{
-            longText
-        }}
-        <mat-card-actions align="end">
-            <button mat-button style="height:30px;margin-right:10px;">Like</button>
-            <button mat-button style="height:30px;">Share</button>
-        </mat-card-actions>
-    </mat-card-content>
-  </mat-card>
-  <div>
-    <div class="mx-auto" style="width: 900px;height: 1000px;">
-        <mat-card class="example-card">
-            <mat-card-title-group>
-              <mat-card-title>Northern Lights</mat-card-title>
-              <mat-card-subtitle></mat-card-subtitle>
-              <img mat-card-xl-image src="https://cdn.mos.cms.futurecdn.net/8FXSYkHRGGLNhqKaWGfNLQ-1200-80.jpg.webp">
-            </mat-card-title-group>
-            <mat-card-content>
-                
-                {{
-                    longText1
-                }}
-                <mat-card-actions align="end">
-                    <button  mat-button style="height:30px;margin-right:10px ;" >Like</button>
-                    <button mat-button style="height:30px;">Share</button>
-                </mat-card-actions>
-            </mat-card-content>
-          </mat-card>
-          <div>
-            <div class="mx-auto" style="width: 900px;height: 1000px;">
-                <mat-card class="example-card">
-                    <mat-card-title-group>
-                      <mat-card-title>MoonBows</mat-card-title>
-                      <mat-card-subtitle></mat-card-subtitle>
-                      <img mat-card-xl-image src="https://www.darksky.org/wp-content/uploads/2015/11/o-CJ-KALE-LAVA-MOONBOW-900.jpg">
-                    </mat-card-title-group>
-                    <mat-card-content>
-                        
-                        {{
-                            longText2
-                        }}
-                        <mat-card-actions align="end">
-                            <button mat-button style="height:30px;margin-right: 10px;">Like</button>
-                            <button mat-button style="height:30px;">Share</button>
-                        </mat-card-actions>
-                    </mat-card-content>
-                  </mat-card>
-                  <div>
-            
-    
+
+<button routerLink="/header/popupform"  style="display:block; margin:auto" color="accent">+ Add New User</button>
+
+<div class="container">
+
+  <table>
+    <tr>
+      <th>user_name</th>
+      <th>phone_no</th>
+      <th>mail_Id</th>
+      <th>gender</th>
+      <th></th>
+      <th></th>
+    </tr>
+    <tr *ngFor="let net of networkUsers">
+
+      <td style="font-weight:bold;">{{net.userName |uppercase }}</td>
+      <td>{{net.phoneNum}}</td>
+      <td style="font-weight:bold;">{{net.mailId}}</td>
+      <td>{{net.gender|uppercase}}</td>
+      <td><button routerLink="/header/popupform" (click)="edituser(net.phoneNum)">Edit</button></td>
+      <td><button (click)="DeleteUser(net.phoneNum)">Delete</button></td>
+    </tr>
+  </table>
+  <router-outlet></router-outlet>
+
+

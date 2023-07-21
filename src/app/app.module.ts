@@ -24,6 +24,10 @@ import {MatMenuModule} from '@angular/material/menu';
 import { PostModule } from './posts/post.module';
 import { NgxSpinnerModule } from "ngx-spinner";
 import { NotificationComponent } from './notification/notification.component';
+import { PopupformComponent } from './popupform/popupform.component';
+import {MatButtonModule} from '@angular/material/button';
+
+
 
 
 
@@ -44,7 +48,9 @@ import { NotificationComponent } from './notification/notification.component';
     MenuitemComponent,
     NetworkComponent,
     ImageComponent,
-    NotificationComponent
+    NotificationComponent,
+    PopupformComponent
+    
     
     
     
@@ -67,6 +73,9 @@ import { NotificationComponent } from './notification/notification.component';
     MatMenuModule,
     PostModule,
     NgxSpinnerModule,
+    MatButtonModule,
+    
+
    ],
   providers: [],
   bootstrap: [AppComponent]

@@ -9,8 +9,9 @@ import { DialogData } from '../post-dialog/post-dialog.component';
 })
 export class PopupcommentComponent implements OnInit {
   comments:any;
-  constructor(@Inject(MAT_DIALOG_DATA) public data:DialogData,
-  public dialogref:MatDialogRef<PopupcommentComponent>) 
+  
+  
+  constructor(@Inject(MAT_DIALOG_DATA) public data:DialogData,public dialogref:MatDialogRef<PopupcommentComponent>) 
   { 
     this.comments = data;
   }
