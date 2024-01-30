@@ -1,26 +1,22 @@
-table {
-    width: 100%;
-    
-  }
+
   
   th {
 
     color: rgb(87, 1, 36);
   }
- th, td {
-    text-align: center;
-  }
-  th{
-    text-transform: uppercase;
+ 
+  
+  
+  
 
-  }
-  div
-  {
-      margin-top: 60px;
-  }
+    div
+    {
+        margin-top: 10%;
+    }
+  
   th {
-    background-color: #8f0967;
-    color: white;
+    background-color: #81025b;
+    color: rgb(241, 240, 240);
   }
   tr:hover
   {
@@ -42,6 +38,8 @@ button:active {
     margin-left: auto;
     
    }   
-      
+   table {
+       width: 100%;
+  }
 
   

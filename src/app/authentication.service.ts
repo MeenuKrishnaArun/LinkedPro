@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { retry } from 'rxjs';
 import { SignInData } from './model/signInData';
 
 @Injectable({
@@ -25,7 +24,6 @@ export class AuthenticationService {
 
       {
          this.isAuthenticated=true;
-         this.router.navigate(['header']);
          return true;
       }
       this.isAuthenticated=false;
@@ -54,7 +52,7 @@ export class AuthenticationService {
   logout()
   {
     this.isAuthenticated = false;
-    this.router.navigate(['']);
+    this.router.navigate(['/login']);
   }
 }
 

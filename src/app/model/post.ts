@@ -14,6 +14,14 @@ export interface PostModel
     Likes?: User[];
 }
 
+export interface PostRequestModel
+{
+    content?: string;
+    imageUrl?: string;
+    videoUrl?: string;
+    userId?: string;
+}
+
 export interface User
 {
    userId: string;

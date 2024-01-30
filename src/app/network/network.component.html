@@ -3,25 +3,43 @@
 
 <div class="container">
 
-  <table>
-    <tr>
-      <th>user_name</th>
-      <th>phone_no</th>
-      <th>mail_Id</th>
-      <th>gender</th>
-      <th></th>
-      <th></th>
-    </tr>
-    <tr *ngFor="let net of networkUsers">
+ <table mat-table [dataSource]="dataSource">
+  
+ <tr  mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+ <tr mat-row *matRowDef="let emprow; columns: displayedColumns;"></tr>
 
-      <td style="font-weight:bold;">{{net.userName |uppercase }}</td>
-      <td>{{net.phoneNum}}</td>
-      <td style="font-weight:bold;">{{net.mailId}}</td>
-      <td>{{net.gender|uppercase}}</td>
-      <td><button routerLink="/header/popupform" (click)="edituser(net.phoneNum)">Edit</button></td>
-      <td><button (click)="DeleteUser(net.phoneNum)">Delete</button></td>
-    </tr>
-  </table>
+  <ng-container matColumnDef="USERNAME">
+    <th mat-header-cell *matHeaderCellDef>USERNAME </th>
+    <td mat-cell *matCellDef="let emp"> {{emp.userName|uppercase}} </td>
+  </ng-container>                                                  
+<ng-container matColumnDef="PHONE">
+    <th mat-header-cell *matHeaderCellDef> PHONE </th>
+    <td mat-cell *matCellDef="let emp"> {{emp.phoneNum}} </td>
+</ng-container>
+<ng-container matColumnDef="Email">
+  <th mat-header-cell *matHeaderCellDef>Email</th>
+  <td mat-cell *matCellDef="let emp"> {{emp.mailId}} </td>
+</ng-container>
+
+<ng-container matColumnDef="Gender">
+  <th mat-header-cell *matHeaderCellDef> Gender </th>
+  <td mat-cell *matCellDef="let emp"> {{emp.gender|uppercase}} </td>
+</ng-container>
+<ng-container matColumnDef="EDIT">
+
+  <th mat-header-cell *matHeaderCellDef> EDIT </th>
+
+  <td mat-cell *matCellDef="let emp" ><button (click)="NagivateToEdit(emp.phoneNum)">Edit</button></td>
+</ng-container>
+<!--<ng-container  matColumnDef ="DELETE">
+  <th mat-header-cell *matHeaderCellDef > delete </th>
+
+  <td mat-cell *matCellDef="let emp"><button (click)="DeleteUser(emp.phoneNum)">Delete</button></td>
+</ng-container>-->
+
+ </table>
+ 
+ <mat-paginator [pageSizeOptions]="[3,5,7]" showFirstLastButtons></mat-paginator>
   <router-outlet></router-outlet>
 
 

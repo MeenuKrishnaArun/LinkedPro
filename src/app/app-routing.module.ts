@@ -8,22 +8,24 @@ import { MessageComponent } from './message/message.component';
 import { NetworkComponent } from './network/network.component';
 import { NotificationComponent } from './notification/notification.component';
 import { PopupformComponent } from './popupform/popupform.component';
+import { ErrorComponent } from './error/error.component';
+import { AuthenticationGuard } from './authguard'
 const routes: Routes = [
       {
-        path:'header',component:HeaderComponent,
-        children:[{path:'home',component:HomeComponent},
-                   {path:'network',component:NetworkComponent},
-                    {path:'message',component:MessageComponent},
-                      {path:'image',component:ImageComponent},
-                    {path:'notification',component:NotificationComponent},
+        path:'app',component:HeaderComponent,
+        children:[{path:'home',component:HomeComponent, canActivate: [AuthenticationGuard]},
+                   {path:'network',component:NetworkComponent, canActivate: [AuthenticationGuard]},
+                    {path:'message',component:MessageComponent, canActivate: [AuthenticationGuard]},
+                      {path:'image',component:ImageComponent, canActivate: [AuthenticationGuard]},
+                    {path:'notification',component:NotificationComponent, canActivate: [AuthenticationGuard]},
                     {
                       path:'popupform',component:PopupformComponent
                     } ]
       },
        {
-        path:'',component:LoginComponent
+        path:'login',component:LoginComponent
       },
-     
+      { path: '', redirectTo: '/app/home', pathMatch: 'full' },
 
       ];
         

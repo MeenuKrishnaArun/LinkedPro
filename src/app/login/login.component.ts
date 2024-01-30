@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { AuthenticationService } from '../authentication.service';
 import { SignInData } from '../model/signInData';
 import { NgIf } from '@angular/common';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -12,7 +13,7 @@ import { NgIf } from '@angular/common';
 export class LoginComponent implements OnInit {
       
 
-  constructor(private authenticationService:AuthenticationService) { }
+  constructor(private authenticationService:AuthenticationService, private router: Router) { }
 
   ngOnInit(): void {}
 
@@ -20,6 +21,7 @@ export class LoginComponent implements OnInit {
     console.log(signInForm.value);
     const signInData = new SignInData((signInForm.value).email,(signInForm.value).password);
    this.authenticationService.authenticate(signInData);
+   this.router.navigate(['/']);
 }
 
 }

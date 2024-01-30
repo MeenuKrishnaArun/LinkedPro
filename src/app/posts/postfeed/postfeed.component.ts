@@ -10,7 +10,7 @@ import { PostService } from 'src/app/posts/services/post.service';
 })
 export class PostfeedComponent implements OnInit {
   
-  postList?: PostModel[];
+  postList!:PostModel[];
   postService: PostService;
    
 
@@ -23,8 +23,10 @@ export class PostfeedComponent implements OnInit {
     
   }
   
-  refreshPostList(){
+  refreshPostList()
+  {
     this.postList = this.postService.getPosts();
+  
   }
 
    ngOnInit(): void {

@@ -30,31 +30,34 @@
     </div>-->
     <div class="container">
         <div class="form-area">
-            <form  (ngSubmit)="onSubmit()" #myForm="ngForm"  >
+            <form  (ngSubmit)="onSubmit()"  #myForm="ngForm"  >
          <div>
                    
           <label>USER NAME</label>
-          <input type="text" name="name" ngModel><br><br>
+          <input type="text" name="name" ngModel required><br><br>
 
           <label>PHONE NUMBER</label>
-          <input type="tel" name="phone" ngModel><br><br>
+          <input type="tel" name="phone" ngModel required><br><br>
         
 
           <label>EMAIL ID</label>
-          <input type="email" placeholder="txt@gmail.com" name="email" ngModel><br><br>
+          <input type="email" placeholder="txt@gmail.com" name="email" ngModel required email><br><br>
           
          </div>
-        
-         <p> <label>GENDER</label>
-        
-                <input type="radio"id="male" value="male" name="gender" name="gender" ngModel>
-                <label for="male">MALE</label>
+        <div>
+          
+          <label for="gender">GENDER</label> 
 
-                <input type="radio" id="female" value="Female" name="gender" name="gender" ngModel>
-                <label for="female">FEMALE</label></p>
+          <span *ngFor="let gen of gender">
+                <input type="radio"id="{{gen.id}}" value="{{gen.value}}" name="gender" ngModel required>
+                <label for="female">{{gen.value}}</label></span>
+          
+      
+        </div>
+        <div>
 
-         <input class="submit"   type="submit" value="submit">
-         
+         <input class="submit"   type="submit" value="submit"  >
+        </div>
             </form >
         </div>
     </div  >

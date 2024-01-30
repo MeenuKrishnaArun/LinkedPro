@@ -26,17 +26,10 @@ import { NgxSpinnerModule } from "ngx-spinner";
 import { NotificationComponent } from './notification/notification.component';
 import { PopupformComponent } from './popupform/popupform.component';
 import {MatButtonModule} from '@angular/material/button';
-
-
-
-
-
-
-
-
-
-
-
+import {MatPaginatorModule} from '@angular/material/paginator';
+import {MatTableModule} from '@angular/material/table';
+import { ErrorComponent } from './error/error.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -49,11 +42,8 @@ import {MatButtonModule} from '@angular/material/button';
     NetworkComponent,
     ImageComponent,
     NotificationComponent,
-    PopupformComponent
-    
-    
-    
-    
+    PopupformComponent,
+    ErrorComponent
   ],
   imports: [
     BrowserModule,
@@ -74,8 +64,9 @@ import {MatButtonModule} from '@angular/material/button';
     PostModule,
     NgxSpinnerModule,
     MatButtonModule,
-    
-
+    MatPaginatorModule,
+    MatTableModule,
+    HttpClientModule
    ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,9 +1,10 @@
-import { Component,ViewChild } from '@angular/core';
+import { Component,ViewChild,OnInit,AfterViewInit } from '@angular/core';
 import { FormControl,NgForm,Validators } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { networkUser } from '../model/networkUser';
 import { NetworkusersdetailsService } from '../networkusersdetails.service';
 import { Router } from '@angular/router';
+import {MatFormFieldModule} from '@angular/material/form-field';
 
 
 @Component({
@@ -12,35 +13,34 @@ import { Router } from '@angular/router';
   styleUrls: ['./popupform.component.css']
   
 })
-export class PopupformComponent {
+export class PopupformComponent implements  AfterViewInit {
   userArray!:networkUser;
   name:string='';
   phone:number=0;
   emailid:string='';
   gen:string='';
-  edituserON:boolean=true;
-  @ViewChild('myForm')form!: NgForm;
+  user?:networkUser;
+  gender=[{id:'1',value:'male'},
+  {id:'2',value:'female'}]
+   @ViewChild('myForm') form!:NgForm;
+
+ 
   constructor(private networkservice:NetworkusersdetailsService ,private router:Router)
   {
-    this.networkservice.form_gettingEditUser().subscribe((data)=>{
-      this.form.setValue({ userName:data.userName,
-                           phoneNum:data.phoneNum,
-                           mailId:data.mailId,
-                           gender:data.gender
-                          })
-      })
+    this.user = this.router.getCurrentNavigation()?.extras.state as networkUser|undefined
   }
- 
 
-  email = new FormControl('', [Validators.required, Validators.email]);
+ngAfterViewInit(): void { 
 
-  getErrorMessage() {
-    if (this.email.hasError('required')) {
-      return 'You must enter a value';
-    }
-
-    return this.email.hasError('email') ? 'Not a valid email' : '';
-  }
+  if(this.user)
+  
+    setTimeout(()=>{this.form.setValue({ name:this.user?.userName,
+                         phone:this.user?.phoneNum,
+                         email:this.user?.mailId,
+                         gender:this.user?.gender
+                        })}, 500);
+                      
+}
   
   onSubmit()
   {

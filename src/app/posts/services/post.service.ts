@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
 import { Observable, Subject,Subscriber, timer } from 'rxjs';
-import { Comment, PostModel, Reaction, ReactionSummary, User } from 'src/app/model/post';
+import { Comment, PostModel, Reaction, ReactionSummary, User, PostRequestModel } from 'src/app/model/post';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { PostModule } from '../post.module';
+import { HttpClient } from '@angular/common/http';
 
 
 @Injectable({
@@ -10,14 +11,19 @@ import { PostModule } from '../post.module';
 })
 export class PostService {
   hideflag:boolean=false;
-  public posts: PostModel[];
+  public posts!: PostModel[];
+  public Saveposts: PostModel[];
+
+
+
   public postListUpdatedEvent: Observable<boolean>;
   private postSubject: Subject<boolean>;
-  constructor(private spinnerService: NgxSpinnerService  ) { 
+  constructor(private spinnerService: NgxSpinnerService, private http: HttpClient  ) { 
 
     this.postSubject = new Subject<boolean>();
     this.postListUpdatedEvent = this.postSubject as Observable<boolean>;
-
+    this.Saveposts=[];
+     
     this.posts = [{
       postId: crypto.randomUUID(),
         user: {
@@ -63,10 +69,11 @@ export class PostService {
           avatarUrl:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSLmEAWNLfALv_mJ57CnBH4YhCWiNtWobUx5FB10mhEo5oCRgkeqcoqXkbdhfUlYIEun9k&usqp=CAU"},
           {
             
-          userId: 'priya@gmail.com',
+          userId: 'supriya@gmail.com',
             name: 'Leena George',
             role: 'student',
-            avatarUrl:"https://1.bp.blogspot.com/-k3XlNuOeN8U/YCj4bLikxKI/AAAAAAAAhcc/G2pOo6LKr384c0KYvu8Or1RmvZBzltCpgCLcBGAsYHQ/s720/50%2B%252B%2BWhatsapp%2BBeautiful%2BDP%2BCollection%2B2021%2B%252818%2529.jpg"}],
+            avatarUrl:"https://1.bp.blogspot.com/-k3XlNuOeN8U/YCj4bLikxKI/AAAAAAAAhcc/G2pOo6LKr384c0KYvu8Or1RmvZBzltCpgCLcBGAsYHQ/s720/50%2B%252B%2BWhatsapp%2BBeautiful%2BDP%2BCollection%2B2021%2B%252818%2529.jpg"
+          }],
 
       },
       {
@@ -102,22 +109,23 @@ export class PostService {
                  }
         }] ,
         Likes:[{
-               userId: 'athi@gmail.com',
+               userId: 'sumathi@gmail.com',
                name: 'Athul S Raj',
                role: "designer",
                avatarUrl:"https://149785820.v2.pressablecdn.com/wp-content/uploads/2020/11/the-inn-on-biltmore-estate-3.jpg"},
                {
 
             
-               userId: 'athi@gmhail.com',
+               userId: 'resh@gmhail.com',
                name: 'Arya Tampi',
                role: "designer",
                avatarUrl:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRWG3rOZKJsm0rrrhRXZAZ9Xj1_Rzup0xFoIbPWRe-r2gyyrqMudy1f1dfVk0yX9VkPhog&usqp=CAU"},
                {
-                userId: 'athi@gmail.com',
+                userId: 'kathi@gmail.com',
                 name: 'Payal AS',
                 role: 'designer',
-                avatarUrl:"https://us.123rf.com/450wm/jickaro/jickaro2210/jickaro221000266/192835295-adorable-deer-on-a-bokeh-background-with-snow-christmas-background-concept-3d-render.jpg?ver=6"}],
+                avatarUrl:"https://us.123rf.com/450wm/jickaro/jickaro2210/jickaro221000266/192835295-adorable-deer-on-a-bokeh-background-with-snow-christmas-background-concept-3d-render.jpg?ver=6"
+              }],
 
        
      }
@@ -126,19 +134,35 @@ export class PostService {
 
 
   // Get all posts for postfeed
-  getPosts(): PostModel[]{
+  getPosts()
+  {
+
+    // this.http.get<PostModel>('https://localhost:7270/users/list')
+    // .subscribe((data)=>{ this.posts.push(data)})
     return this.posts;
-  }
+   
+  
+}
+  
   // Add 'post' to the main list of posts
   addPost(post: PostModel)
   {
     this.spinnerService.show();
     const source = timer(2000);
-    const subscribe = source.subscribe(val => 
-      {
-        this.posts.unshift(post);
-       this.spinnerService.hide();
-      });
+    
+    this.posts.unshift(post);
+    this.spinnerService.hide();
+
+  //   this.http.post<any>('https://localhost:7270/Post/savepost', post)
+  //   .subscribe({
+  //     next: data => {
+  //     this.posts.unshift(data);
+  //     this.spinnerService.hide();
+  //   }, 
+  //   error: data=>{
+  //     this.spinnerService.hide();
+  //   }
+  // });
   }
 
   deletePost(postId:string)
